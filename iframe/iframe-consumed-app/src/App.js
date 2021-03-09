@@ -1,11 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import * as React from "react";
 
 function App() {
+
   window.top.postMessage('I am Iframe', '*')
   window.onmessage = (event) => {
-      if (event.data === 'GOT_YOU_IFRAME') {
-          console.log('Parent received successfully.')
+      if (event.data.access_token) {
+          console.log('auth token:', event.data.access_token)
       }
   }
 

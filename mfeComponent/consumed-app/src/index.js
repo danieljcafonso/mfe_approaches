@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-window.renderConsumed = (containerId, history) => {
+window.renderConsumed = (containerId, accessToken, history) => {
+  console.log(accessToken)
   ReactDOM.render(
     <App />,
     document.getElementById(containerId),

@@ -35,11 +35,16 @@ function useWindowSize() {
 
 
 function App() {
+  useEffect(() => {
+    window.sessionStorage.setItem('access_token', 'randomToken')
+}, [])
+
   const size = useWindowSize();
 
 window.onmessage = (event) => {
 
-  event.source.window.postMessage('GOT_YOU_IFRAME', '*')
+  event.source.window.postMessage({access_token: 'randomToken'}, '*')
+
 }
 
   return (
